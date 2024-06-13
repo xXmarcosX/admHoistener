@@ -1,0 +1,51 @@
+/* Sidebar.css */
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0; /* Ajustado para o canto esquerdo */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    padding-top: 60px;
+    transition: transform 0.3s ease;
+    border-top-right-radius: 20px; 
+    border-bottom-right-radius: 10px;
+  }
+
+
+.sidebar img {
+    width: 220px;
+    height: auto;
+}
+    
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 20px;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+img .logo {
+    width: 29px;
+    height: auto;
+}
+  

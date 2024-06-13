@@ -1,0 +1,42 @@
+.half-screen-div {
+    height: 100vh;
+    max-height: 800px; 
+    background-color: #31363F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 250px;
+    border-left: 1px solid #ccc;
+    border-radius: 10px; 
+    overflow-y: auto; 
+}
+
+  .car-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .car-item {
+    display: flex;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .car-image {
+    width: 250px;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+
+  .car-details h3 {
+    margin-top: 0;
+  }
+  
+  .car-details p {
+    margin: 5px 0;
+  }
+  
+  

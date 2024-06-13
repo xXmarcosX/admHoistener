@@ -1,75 +1,82 @@
-import { useRef } from 'react'
-import Lista from '../Lista/Lista'
-import style from './login.module.css'
+import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import style from './login.module.css';
 
 function Login(){
 
-    const user = useRef()
-    const password = useRef()
+    const navigate = useNavigate();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const user = useRef();
+    const password = useRef();
 
-    const getUser = sessionStorage.getItem('user')
-    const getPassword = sessionStorage.getItem('password')
+    const getUser = sessionStorage.getItem('user');
+    const getPassword = sessionStorage.getItem('password');
 
     const handleSubmit = () => {
 
-      if(user.current.value =="Admin" && password.current.value=="123456"){
+      if(user.current.value === "Admin" && password.current.value === "123456") {
   
         let token =
           Math.random().toString(16).substring(2)+
           Math.random().toString(16).substring(2);
   
-        sessionStorage.setItem("user","Admin");
-        sessionStorage.setItem("password",token); 
-  
-      }else{
-        alert("usuario e senha invalidos")
+        sessionStorage.setItem("user", "Admin");
+        sessionStorage.setItem("password", token); 
+        setIsLoggedIn(true);
+      } else {
+        alert("Usuário e senha inválidos");
       }
+    };
+
+    if (isLoggedIn) {
+        navigate('/admcenter');
+        return null; // Redirecionando, então não precisa renderizar nada aqui
     }
 
-  return(
-    <section className="login">
-      {getUser && getPassword ? (
-      <Lista/>
-    ):
-    <div className={style.loginForm}>
-        <div className={style.loginFormImg}>
-          <img src='https://github.com/welltecnc.png' alt="imagem" />
-        </div>
-        <form 
-        className={style.loginFormForm}
-        onSubmit={handleSubmit}
-        >
-          <h1>Login Administrador</h1>
-          <p>
-            Usuario:
-            <input
-              type="text"
-              id="user"
-              placeholder="Digite seu usuário"
-              required
-              className={style.input}
-              ref={user}
-            />
-          </p>
-          <p>
-            Senha:
-            <input
-              type="password"
-              id="password"
-              placeholder="Digite sua senha"
-              required
-              className={style.input}
-              ref={password}
-            />
-          </p>
-
-          <div className={style.btns}>
-            <button type="submit">Login</button>
-          </div>
-        </form>
-      </div>
-  }
-    </section>
-  )
+    return (
+        <section className="login">
+            {getUser && getPassword ? (
+                <Lista/>
+            ) : (
+                <div className={style.loginForm}>
+                    <div className={style.loginFormImg}>
+                        <img src='https://github.com/welltecnc.png' alt="imagem" />
+                    </div>
+                    <form 
+                        className={style.loginFormForm}
+                        onSubmit={handleSubmit}
+                    >
+                        <h1>Login Administrador</h1>
+                        <p>
+                            Usuario:
+                            <input
+                                type="text"
+                                id="user"
+                                placeholder="Digite seu usuário"
+                                required
+                                className={style.input}
+                                ref={user}
+                            />
+                        </p>
+                        <p>
+                            Senha:
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Digite sua senha"
+                                required
+                                className={style.input}
+                                ref={password}
+                            />
+                        </p>
+                        <div className={style.btns}>
+                            <button type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+            )}
+        </section>
+    );
 }
-export default Login 
+
+export default Login;
