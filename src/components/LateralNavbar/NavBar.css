@@ -10,6 +10,7 @@
     transition: transform 0.3s ease;
     border-top-right-radius: 20px; 
     border-bottom-right-radius: 10px;
+    padding-left: 1rem;
   }
 
 
