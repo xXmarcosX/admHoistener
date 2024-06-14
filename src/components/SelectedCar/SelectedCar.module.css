@@ -1,4 +1,4 @@
-.half-screen-div {
+.halfScreenDiv {
     height: 100vh;
     max-height: 800px;
     background-color: #161719;
@@ -10,10 +10,11 @@
     border-radius: 10px;
   }
   
-  .car-container {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Espaço entre a imagem e a lista */
+  .carImage {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px; /* Espaço entre a imagem e a lista */
   }
   
   ul {
@@ -24,25 +25,31 @@
   li {
     margin-bottom: 10px;
     font-size: 16px;
-    color: #fff; /* Mudança para branco para melhor contraste com o fundo escuro */
-  }
-  
-  .car-image {
-    max-width: 200px; /* Define uma largura máxima para a imagem */
-    height: auto;
-    border-radius: 8px;
+    color: #fff;
   }
   
   button {
     padding: 10px 15px;
-    background-color: #ff0000;
+    margin-right: 10px; /* Espaço entre os botões */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
   
-  button:hover {
+  .deleteButton {
+    background-color: #ff6347;
+  }
+  
+  .deleteButton:hover {
     background-color: #e55342;
+  }
+  
+  .editButton {
+    background-color: #f6cd00;
+  }
+  
+  .editButton:hover {
+    background-color: #a09a45;
   }
   

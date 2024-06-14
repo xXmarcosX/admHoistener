@@ -1,41 +1,42 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import './SelectedCar.module.css'
-const SelectedCar = ({car}) => {
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './SelectedCar.module.css'; // Usando módulos CSS para evitar conflito de nomes
 
-  const navigate = useNavigate()
+const SelectedCar = ({ car }) => {
+  const navigate = useNavigate();
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:4000/car/${id}`,
-      {
-        method: 'DELETE'
-      }
-    ).then((response) => {
-      console.log(response.status)
-      alert('ain tu vai deletar o carro pain')
-      navigate('/carros')
-    })
-  }
+    fetch(`http://localhost:4000/car/${id}`, {
+      method: 'DELETE'
+    }).then((response) => {
+      console.log(response.status);
+      alert('Tem certeza que deseja deletar este carro?');
+      navigate('/carros');
+    });
+  };
+
+  const handleEdit = (id) => {
+    navigate(`/editcarro/${id}`);
+  };
 
   return (
-    <>
-      <div className="half-screen-div">
-      <img src={car.image} alt={car.model} className="car-image" />
-        <ul>
-          <li>Marca: {car.mark}</li>
-          <li>Modelo: {car.model}</li>
-          <li>Placa: {car.plate}</li>
-          <li>Data Lacamento: {car.releaseDate}</li>
-          <li>Preco: {car.price}</li>
-          <li>Cor: {car.color}</li>
-          <li>Descricao: {car.description}</li>
-          <li>
-            <button onClick={() => handleDelete(car._id)}>Deletar</button>
-          </li>
-        </ul>
-      </div>
-    </>
+    <div className={styles.halfScreenDiv}>
+      <img src={car.image} alt={car.model} className={styles.carImage} />
+      <ul>
+        <li>Marca: {car.mark}</li>
+        <li>Modelo: {car.model}</li>
+        <li>Placa: {car.plate}</li>
+        <li>Data de Lançamento: {car.releaseDate}</li>
+        <li>Preço: {car.price}</li>
+        <li>Cor: {car.color}</li>
+        <li>Descrição: {car.description}</li>
+        <li>
+          <button className={styles.deleteButton} onClick={() => handleDelete(car._id)}>Deletar</button>
+          <button className={styles.editButton} onClick={() => handleEdit(car._id)}>Editar</button>
+        </li>
+      </ul>
+    </div>
   );
-}
+};
 
-export default SelectedCar
+export default SelectedCar;

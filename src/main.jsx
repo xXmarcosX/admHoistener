@@ -8,6 +8,7 @@ import Clientes from './routes/Clientes/Clientes.jsx'
 import Erro from './routes/Erro/Erro.jsx'
 import Home from './routes/Home/Home.jsx'
 import VeiculosRoutes from './routes/Veiculos/Veiculos.jsx'
+import EditCar from './routes/EditCar/EditCar.jsx'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       {path: '/carros', element: <VeiculosRoutes/>},
       {path: '/car/:id', element: <Car/>},
       {path: '/clientes', element: <Clientes/>},
+      {path: '/editcarro/:id', element: <EditCar/>},
     ]
   }
 ])
