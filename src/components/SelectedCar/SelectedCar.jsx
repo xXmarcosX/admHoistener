@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import './SelectedCar.module.css'
 const SelectedCar = ({car}) => {
 
   const navigate = useNavigate()
@@ -19,14 +19,23 @@ const SelectedCar = ({car}) => {
 
   return (
     <>
-      <ul>
-        <li>{car.mark}</li>
-        <li>{car.model}</li>
-
-        <button onClick={() => handleDelete(car._id)}>Deletar</button>
-      </ul>
+      <div className="half-screen-div">
+      <img src={car.image} alt={car.model} className="car-image" />
+        <ul>
+          <li>Marca: {car.mark}</li>
+          <li>Modelo: {car.model}</li>
+          <li>Placa: {car.plate}</li>
+          <li>Data Lacamento: {car.releaseDate}</li>
+          <li>Preco: {car.price}</li>
+          <li>Cor: {car.color}</li>
+          <li>Descricao: {car.description}</li>
+          <li>
+            <button onClick={() => handleDelete(car._id)}>Deletar</button>
+          </li>
+        </ul>
+      </div>
     </>
-  )
+  );
 }
 
 export default SelectedCar

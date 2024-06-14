@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import SelectedCar from '../../components/SelectedCar/SelectedCar';
+import { TbLayoutNavbarInactive } from 'react-icons/tb';
+import NavBar from '../../components/LateralNavbar/NavBar';
 
 const Car = () => {
 
@@ -20,8 +22,10 @@ const Car = () => {
 
   return (
     <>
+      <NavBar/>
       {selectedCar ? (
          <SelectedCar car={selectedCar}/>
+         
       ):
       <h1>car not found</h1>}
     </>
