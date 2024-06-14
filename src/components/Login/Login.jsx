@@ -1,5 +1,7 @@
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Logo from '../../assets/hoistener-logo1.png';
+import '../../css/style.css';
 import style from './login.module.css';
 
 function Login(){
@@ -40,7 +42,7 @@ function Login(){
             ) : (
                 <div className={style.loginForm}>
                     <div className={style.loginFormImg}>
-                        <img src='https://github.com/welltecnc.png' alt="imagem" />
+                        <img src={Logo} alt="imagem" />
                     </div>
                     <form 
                         className={style.loginFormForm}
