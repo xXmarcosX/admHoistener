@@ -15,9 +15,10 @@ const Veiculos = () => {
 
     return (
         <div className="half-screen-div">
-                {cars.map(car => (
+            {cars.map(car => (
                         <VeiculoCard car={car}/>
                 ))}
+                
         </div>
     );
 }

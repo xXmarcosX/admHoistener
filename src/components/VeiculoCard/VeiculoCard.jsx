@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const VeiculoCard = ({car}) => {
   return (
     <>
+    <div className="car-item">
       <Link to={`/car/${car._id}`} className="car-link">
         <img src={car.image} alt={car.model} className="car-image" />
         <div className="car-details">
@@ -18,6 +19,7 @@ const VeiculoCard = ({car}) => {
           <p>Cor: {car.color}</p>
         </div>
       </Link>
+      </div>
     </>
   );
 };
