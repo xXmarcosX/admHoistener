@@ -1,19 +1,28 @@
 .half-screen-div {
     height: 100vh;
-    max-height: 800px; 
     background-color: #31363F;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    padding-top: 2%;
     align-items: center;
     margin-left: 250px;
     border-left: 1px solid #ccc;
     border-radius: 10px; 
-    overflow-y: auto; 
+    overflow-y: scroll; 
+}
+
+.half-screen-div::-webkit-scrollbar{
+  color: white;
+}
+
+.half-screen-div::-webkit-scrollbar-thumb{
+  border-color: darkgray;
+  border-radius: 6px;
+  border: 3px solid white;
 }
 
   .car-list {
     list-style: none;
-    padding: 0;
   }
   
   .car-item {
