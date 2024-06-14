@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React from 'react';
+import EditCarForm from '../../components/EditCarForm/EditCarForm';
 import NavBar from '../../components/LateralNavbar/NavBar';
 
 const EditCar = () => {
   return (
     <>
     <NavBar/>
-      {EditCar ? (
-         <EditCar car={EditCar}/>
-         
-      ):
-      <h1>car not found</h1>}
+      <EditCarForm/>
     </>
   );
 };

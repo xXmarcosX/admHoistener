@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import './EditCar.module.css'
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import './EditCarForm.module.css';
 
-const EditCar = () => {
+const EditCarForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [cars, setCars] = useState([]);
   const [car, setCar] = useState({
     mark: '',
     model: '',
@@ -17,10 +18,19 @@ const EditCar = () => {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:4000/car/${id}`)
+    fetch('http://localhost:4000/cars/')
       .then(response => response.json())
-      .then(data => setCar(data));
-  }, [id]);
+      .then(data => setCars(data));
+  }, []);
+
+  useEffect(() => {
+    if (cars.length > 0 && id) {
+      const foundCar = cars.find(car => car._id === id);
+      if (foundCar) {
+        setCar(foundCar);
+      }
+    }
+  }, [cars, id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -84,4 +94,4 @@ const EditCar = () => {
   );
 };
 
-export default EditCar;
+export default EditCarForm;
