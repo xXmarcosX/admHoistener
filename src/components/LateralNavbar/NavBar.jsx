@@ -1,7 +1,7 @@
-import React from 'react'
-import './NavBar.css'
-import logo from '../../assets/hoistener-logo1.png';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/hoistener-logo1.png';
+import './NavBar.css';
 
 const NavBar = ({ isOpen, onClose }) => {
   return (
@@ -13,6 +13,12 @@ const NavBar = ({ isOpen, onClose }) => {
         <li><Link to="/vendas" onClick={onClose}>Vendas</Link></li>
         <li><Link to="/funcionarios" onClick={onClose}>Funcionarios</Link></li>
       </ul>
+
+      <div className="btns">
+        <Link to={'/cadveiculo'}>
+          <button>Cadastrar Produto</button>
+        </Link>
+      </div>
     </div>
   );
 };

@@ -26,7 +26,7 @@ const SelectedCar = ({ car }) => {
         <li>Marca: {car.mark}</li>
         <li>Modelo: {car.model}</li>
         <li>Placa: {car.plate}</li>
-        <li>Data de Lançamento: {car.releaseDate}</li>
+        <li>Data de Lançamento: {new Date(car.releaseDate).toLocaleDateString()}</li>
         <li>Preço: {car.price}</li>
         <li>Cor: {car.color}</li>
         <li>Descrição: {car.description}</li>

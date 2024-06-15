@@ -16,7 +16,7 @@ const Veiculos = () => {
     return (
         <div className="half-screen-div">
             {cars.map(car => (
-                        <VeiculoCard car={car}/>
+                        <VeiculoCard car={car} key={car._id}/>
                 ))}
                 
         </div>

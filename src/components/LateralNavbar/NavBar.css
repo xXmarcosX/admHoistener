@@ -8,8 +8,6 @@
     background-color: #333;
     padding-top: 60px;
     transition: transform 0.3s ease;
-    border-top-right-radius: 20px; 
-    border-bottom-right-radius: 10px;
     padding-left: 1rem;
   }
 
@@ -49,4 +47,8 @@ img .logo {
     width: 29px;
     height: auto;
 }
-  
+
+.btns button{
+  margin-top: 5%;
+  color: black;
+}
