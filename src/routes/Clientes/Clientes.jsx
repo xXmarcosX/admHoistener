@@ -48,11 +48,9 @@ const Users = () => {
               <td>{item.email}</td>
               <td>{new Date(item.createdAt).toLocaleDateString()}</td>
               <td>
-                <button className={style.edit}>
-                <Link className={style.edit}>
+              <Link className={style.edit} to={`/editcliente/${item._id}`}>
                   Editar
                 </Link>
-                </button>
               </td>
               <td>
                 <button onClick={handleDelete.bind(this, item._id)} className={style.delete}>

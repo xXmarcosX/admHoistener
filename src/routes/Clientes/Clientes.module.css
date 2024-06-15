@@ -59,6 +59,15 @@ table {
     background-color: yellow;
     transition: 200ms ease-in-out;
     color: black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 60%;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 14px;
+    height: 5.2vh;
   }
 
   .edit:hover{
