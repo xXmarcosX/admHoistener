@@ -3,9 +3,8 @@
     max-height: 800px; 
     background-color: #161719;
     display: flex;
-    justify-content: center;
     align-items: center;
     margin-left: 250px;
     border-left: 1px solid #ccc;
-    border-radius: 10px; 
+    color: white;
 }

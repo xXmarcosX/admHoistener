@@ -8,7 +8,7 @@ const CadastroVeiculo = () => {
         mark: '',
         model: '',
         plate: '',
-        releaseDate: '',
+        releaseDate: '', // no formato yyyy-mm-dd
         price: 0,
         color: '',
         image: ''
@@ -17,33 +17,27 @@ const CadastroVeiculo = () => {
       const navigate = useNavigate()
 
       const handleChange = (e) => {
-        setNovoVeiculo({...novoVeiculo,[e.target.name]:e.target.value})
+        setNovoVeiculo({...novoVeiculo, [e.target.name]: e.target.value});
       }
 
       const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
         fetch('http://localhost:4000/car', {
           method: 'POST',
           headers: {
-            'Content-Type':'application/json',
+            'Content-Type': 'application/json',
           },
-          body:JSON.stringify(novoVeiculo)
-        }).then(({status, body}) => {
-          if(status === 200){
-            console.log('Veiculo Cadastrado')
-            navigate('/carros')
-          } else if (status === 400){
-            console.log(body)
-          }
-        }).catch((e) => {
-          alert('ERROR:', e)
-        })
+          body: JSON.stringify(novoVeiculo)
+        }).then(() => {
+          console.log('Veiculo Cadastrado');
+        });
+        navigate('/carros');
       }
 
   return (
     <>
-
-    <NavBar/>
+      <NavBar/>
 
       <div className={style.container}>
         <form className={style.form} onSubmit={handleSubmit}>
@@ -88,7 +82,7 @@ const CadastroVeiculo = () => {
           <label>
             Data de lançamento:
             <input
-              type="text"
+              type="date"
               placeholder='Digite a data de lançamento'
               name='releaseDate'
               value={novoVeiculo.releaseDate}
@@ -120,6 +114,7 @@ const CadastroVeiculo = () => {
               required
             />
           </label>
+
           <label>
             Imagem:
             <input
@@ -136,7 +131,7 @@ const CadastroVeiculo = () => {
         </form>
       </div>
     </>
-  )
+  );
 }
 
-export default CadastroVeiculo
+export default CadastroVeiculo;

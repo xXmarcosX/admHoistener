@@ -49,7 +49,7 @@ function Login(){
                         onSubmit={handleSubmit}
                     >
                         <h1>Login Administrador</h1>
-                        <p>
+                        <label>
                             Usuario:
                             <input
                                 type="text"
@@ -59,9 +59,9 @@ function Login(){
                                 className={style.input}
                                 ref={user}
                             />
-                        </p>
-                        <p>
-                            Senha:
+                        </label>
+                        <label>
+                            Sua senha:
                             <input
                                 type="password"
                                 id="password"
@@ -70,7 +70,7 @@ function Login(){
                                 className={style.input}
                                 ref={password}
                             />
-                        </p>
+                        </label>
                         <div className={style.btns}>
                             <button type="submit">Login</button>
                         </div>
