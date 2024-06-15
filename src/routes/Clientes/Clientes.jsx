@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { FaEdit, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import NavBar from '../../components/LateralNavbar/NavBar'
 import style from './Clientes.module.css'
@@ -41,13 +40,13 @@ const Users = () => {
               <td>
                 <button>
                 <Link>
-                  <FaEdit />
+                  Editar
                 </Link>
                 </button>
               </td>
               <td>
                 <button onClick={() => handleDelete(item.id)}>
-                  <FaTrash />
+                  Deletar
                 </button>
               </td>
             </tr>
