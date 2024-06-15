@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import NavBar from '../../components/LateralNavbar/NavBar'
 import style from './Clientes.module.css'
 
 const Users = () => {
 
   const [users, setUsers] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch('http://localhost:4000/users')
     .then((response) => response.json())
     .then((data) => setUsers(data))
   }, [])
+
+  const handleDelete =((id)=>{
+    fetch(`http://localhost:4000/user/${id}`,{
+      method:'delete',
+    }).then(()=>{
+      alert('Usuário deletado')
+      location.reload()
+    })
+   })
 
   console.log(users)
 
@@ -38,14 +48,14 @@ const Users = () => {
               <td>{item.email}</td>
               <td>{new Date(item.createdAt).toLocaleDateString()}</td>
               <td>
-                <button>
-                <Link>
+                <button className={style.edit}>
+                <Link className={style.edit}>
                   Editar
                 </Link>
                 </button>
               </td>
               <td>
-                <button onClick={() => handleDelete(item.id)}>
+                <button onClick={handleDelete.bind(this, item._id)} className={style.delete}>
                   Deletar
                 </button>
               </td>

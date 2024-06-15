@@ -39,12 +39,29 @@ table {
   
   table tbody td a, table tbody td button {
     color: white;
-    text-decoration: none;
-    border: none;
-    background: none;
-    cursor: pointer;
   }
   
   table tbody td a:hover, table tbody td button:hover {
     color: #006f5d;
+  }
+
+  .delete{
+    background-color: red;
+    transition: 200ms ease-in-out;
+  }
+
+  .delete:hover{
+    background-color: rgb(213, 5, 5);
+    color: white;
+  }
+
+  .edit{
+    background-color: yellow;
+    transition: 200ms ease-in-out;
+    color: black;
+  }
+
+  .edit:hover{
+    background-color: rgb(187, 187, 6);
+    color: black;
   }
