@@ -35,7 +35,7 @@ const Users = () => {
         <thead>
           <tr>
             <th>Nome</th>
-            <th>Preço</th>
+            <th>Email</th>
             <th>Data de Cadastro</th>
             <th></th>
             <th></th>
