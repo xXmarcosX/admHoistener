@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import style from './EditClientForm.module.css'
 
 const EditClientForm = () => {
   const { id } = useParams()
@@ -60,41 +61,104 @@ const EditClientForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Nome:
-          <input type="text" name="name" value={user.name} onChange={handleChange} />
-        </label>
-        <label>
-          Email:
-          <input type="text" name="email" value={user.email} onChange={handleChange} />
-        </label>
-        <label>
-          Senha:
-          <input type="password" name="password" value={user.password} onChange={handleChange} />
-        </label>
-        <label>
-          CPF:
-          <input type="text" name="cpf" value={user.cpf} onChange={handleChange} />
-        </label>
-        <label>
-          Logradouro:
-          <input type="text" name="logradouro" value={user.logradouro} onChange={handleChange} />
-        </label>
-        <label>
-          Bairro:
-          <input type="text" name="bairro" value={user.bairro} onChange={handleChange} />
-        </label>
-        <label>
-          Cidade:
-          <input type="text" name="localidade" value={user.localidade} onChange={handleChange} />
-        </label>
-        <label>
-          Uf:
-          <input type="text" name="uf" value={user.uf} onChange={handleChange} />
-        </label>
-        <button type="submit">Salvar</button>
-      </form>
+      <div className={style.container}>
+  <form className={style.form} onSubmit={handleSubmit}>
+    <h1>Editar Cliente</h1>
+
+    <label>
+      Nome:
+      <input
+        type="text"
+        placeholder='Digite o nome do cliente'
+        name='name'
+        required
+        value={user.name}
+        onChange={handleChange}
+      />
+    </label>
+
+    <label>
+      E-mail:
+      <input
+        type="text"
+        placeholder='Digite o email do cliente'
+        name='email'
+        value={user.email}
+        onChange={handleChange}
+        required
+      />
+    </label>
+
+    <label>
+      Senha:
+      <input
+        type="password"
+        placeholder='Digite a senha do cliente'
+        name='password'
+        value={user.password}
+        onChange={handleChange}
+      />
+    </label>
+
+    <label>
+      CPF:
+      <input
+        type="text"
+        placeholder='Digite o CPF do cliente'
+        name='cpf'
+        value={user.cpf}
+        onChange={handleChange}
+        required
+      />
+    </label>
+    <label>
+      Logradouro:
+      <input
+        type="text"
+        placeholder='Digite o logradouro do cliente'
+        name='logradouro'
+        value={user.logradouro}
+        onChange={handleChange}
+        required
+      />
+    </label>
+    <label>
+      Bairro:
+      <input
+        type="text"
+        placeholder='Digite o bairro do cliente'
+        name='bairro'
+        value={user.bairro}
+        onChange={handleChange}
+        required
+      />
+    </label>
+    <label>
+      Cidade:
+      <input
+        type="text"
+        placeholder='Digite a cidade do cliente'
+        name='localidade'
+        value={user.localidade}
+        onChange={handleChange}
+        required
+      />
+    </label>
+    <label>
+      UF:
+      <input
+        type="text"
+        placeholder='Digite o UF do cliente'
+        name='uf'
+        value={user.uf}
+        onChange={handleChange}
+        required
+      />
+    </label>
+
+    <button>Cadastrar</button>
+  </form>
+</div>
     </>
   )
 }

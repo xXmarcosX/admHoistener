@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import './EditCarForm.module.css';
+import style from './EditCarForm.module.css';
 
 const EditCarForm = () => {
   const { id } = useParams();
@@ -27,10 +27,18 @@ const EditCarForm = () => {
     if (cars.length > 0 && id) {
       const foundCar = cars.find(car => car._id === id);
       if (foundCar) {
-        setCar(foundCar);
+        setCar({
+          ...foundCar,
+          releaseDate: formatDate(foundCar.releaseDate)
+        });
       }
     }
   }, [cars, id]);
+
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return new Intl.DateTimeFormat('pt-BR', options).format(new Date(dateString));
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,41 +64,93 @@ const EditCarForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Marca:
-        <input type="text" name="mark" value={car.mark} onChange={handleChange} />
-      </label>
-      <label>
-        Modelo:
-        <input type="text" name="model" value={car.model} onChange={handleChange} />
-      </label>
-      <label>
-        Placa:
-        <input type="text" name="plate" value={car.plate} onChange={handleChange} />
-      </label>
-      <label>
-        Data de Lançamento:
-        <input type="text" name="releaseDate" value={car.releaseDate} onChange={handleChange} />
-      </label>
-      <label>
-        Preço:
-        <input type="text" name="price" value={car.price} onChange={handleChange} />
-      </label>
-      <label>
-        Cor:
-        <input type="text" name="color" value={car.color} onChange={handleChange} />
-      </label>
-      <label>
-        Descrição:
-        <input type="text" name="description" value={car.description} onChange={handleChange} />
-      </label>
-      <label>
-        Imagem:
-        <input type="text" name="image" value={car.image} onChange={handleChange} />
-      </label>
-      <button type="submit">Salvar</button>
-    </form>
+    <div className={style.container}>
+      <form className={style.form} onSubmit={handleSubmit}>
+        <h1>Editar Veiculo</h1>
+  
+        <label>
+          Marca:
+          <input
+            type="text"
+            placeholder='Digite a marca do carro'
+            name='mark'
+            required
+            value={car.mark}
+            onChange={handleChange}
+          />
+        </label>
+  
+        <label>
+          Modelo:
+          <input
+            type="text"
+            placeholder='Digite o modelo do carro'
+            name='model'
+            value={car.model}
+            onChange={handleChange}
+            required
+          />
+        </label>
+  
+        <label>
+          Placa:
+          <input
+            type="text"
+            placeholder='Digite a placa do carro'
+            name='plate'
+            value={car.plate}
+            onChange={handleChange}
+          />
+        </label>
+  
+        <label>
+          Data de lançamento:
+          <input
+            type="text"
+            placeholder='Digite a data de lançamento'
+            name='releaseDate'
+            value={car.releaseDate}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Cor:
+          <input
+            type="text"
+            placeholder='Digite a cor do carro'
+            name='color'
+            value={car.color}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Preço:
+          <input
+            type="text"
+            placeholder='Digite o preço do carro'
+            name='price'
+            value={car.price}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Imagem:
+          <input
+            type="text"
+            placeholder='Digite a url da imagem'
+            name='image'
+            value={car.image}
+            onChange={handleChange}
+            required
+          />
+        </label>
+  
+        <button>Cadastrar</button>
+      </form>
+    </div>
   );
 };
 

@@ -1,20 +1,25 @@
 .container{
     width: 100%;
-    height: 100vh;
+    height: 110vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-left: 10%;
     background-color: rgb(174, 161, 161);
-}
-
-.form{
+  }
+  
+  .form{
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+    background-color: rgb(51, 51, 51);
+    border-radius: 16px;
+    color: white;
+    gap: 20px;
+    padding: 1rem 1rem;
+  }
 
 .form input{
     border-radius: 8px;

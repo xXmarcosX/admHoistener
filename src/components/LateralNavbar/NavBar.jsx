@@ -10,13 +10,16 @@ const NavBar = ({ isOpen, onClose }) => {
       <ul>
         <li><Link to="/carros" onClick={onClose}>Veiculos</Link></li>
         <li><Link to="/clientes" onClick={onClose}>Clientes</Link></li>
-        <li><Link to="/vendas" onClick={onClose}>Reservas</Link></li>
+        <li><Link to="/reservas" onClick={onClose}>Reservas</Link></li>
         <li><Link to="/funcs" onClick={onClose}>Funcionarios</Link></li>
       </ul>
 
       <div className="btns">
         <Link to={'/cadveiculo'}>
           <button>Cadastrar Produto</button>
+        </Link>
+        <Link to={'/cadfunc'}>
+          <button>Cadastrar Funcionário</button>
         </Link>
       </div>
     </div>
