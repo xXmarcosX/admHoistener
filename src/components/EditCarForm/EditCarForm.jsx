@@ -11,8 +11,12 @@ const EditCarForm = () => {
     model: '',
     plate: '',
     releaseDate: '',
-    price: '',
+    price: 0,
     color: '',
+    quilometragem: '',
+    cambio: '',
+    motor: '',
+    flex: false,
     description: '',
     image: ''
   });
@@ -29,22 +33,17 @@ const EditCarForm = () => {
       if (foundCar) {
         setCar({
           ...foundCar,
-          releaseDate: formatDate(foundCar.releaseDate)
+          releaseDate: new Date(foundCar.releaseDate).toISOString().split('T')[0] // Ajustando a data para o input
         });
       }
     }
   }, [cars, id]);
 
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-    return new Intl.DateTimeFormat('pt-BR', options).format(new Date(dateString));
-  };
-
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setCar(prevCar => ({
       ...prevCar,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
     }));
   };
 
@@ -60,14 +59,15 @@ const EditCarForm = () => {
       console.log(response.status);
       alert('Carro atualizado com sucesso!');
       navigate('/carros');
-    });
+    }).then(data => console.log(data))
+      .catch(e => alert(e));
   };
 
   return (
     <div className={style.container}>
       <form className={style.form} onSubmit={handleSubmit}>
         <h1>Editar Veiculo</h1>
-  
+
         <label>
           Marca:
           <input
@@ -79,7 +79,7 @@ const EditCarForm = () => {
             onChange={handleChange}
           />
         </label>
-  
+
         <label>
           Modelo:
           <input
@@ -91,7 +91,7 @@ const EditCarForm = () => {
             required
           />
         </label>
-  
+
         <label>
           Placa:
           <input
@@ -102,18 +102,18 @@ const EditCarForm = () => {
             onChange={handleChange}
           />
         </label>
-  
+
         <label>
           Data de lançamento:
           <input
-            type="text"
-            placeholder='Digite a data de lançamento'
-            name='releaseDate'
+            type="date"
+            name="releaseDate"
             value={car.releaseDate}
             onChange={handleChange}
             required
           />
         </label>
+
         <label>
           Cor:
           <input
@@ -126,9 +126,51 @@ const EditCarForm = () => {
           />
         </label>
         <label>
-          Preço:
+          Quilometragem:
           <input
             type="text"
+            placeholder='Digite a quilometragem do carro'
+            name='quilometragem'
+            value={car.quilometragem}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Cambio:
+          <input
+            type="text"
+            placeholder='Digite o cambio do carro'
+            name='cambio'
+            value={car.cambio}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Motor:
+          <input
+            type="text"
+            placeholder='Digite o motor do carro'
+            name='motor'
+            value={car.motor}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Flex:
+          <input
+            type="checkbox"
+            name="flex"
+            checked={car.flex}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Preço:
+          <input
+            type="number"
             placeholder='Digite o preço do carro'
             name='price'
             value={car.price}
@@ -147,7 +189,7 @@ const EditCarForm = () => {
             required
           />
         </label>
-  
+
         <button>Cadastrar</button>
       </form>
     </div>
