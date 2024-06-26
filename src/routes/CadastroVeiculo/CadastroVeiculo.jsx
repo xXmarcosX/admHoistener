@@ -4,21 +4,30 @@ import NavBar from '../../components/LateralNavbar/NavBar';
 import style from './CadastroVeiculo.module.css';
 
 const CadastroVeiculo = () => {
-    const [novoVeiculo, setNovoVeiculo] = useState({
-        mark: '',
-        model: '',
-        plate: '',
-        releaseDate: '', // no formato yyyy-mm-dd
-        price: 0,
-        color: '',
-        image: ''
-      });
+  const [novoVeiculo, setNovoVeiculo] = useState({
+    mark: '',
+    model: '',
+    plate: '',
+    releaseDate: '',
+    price: 0,
+    color: '',
+    quilometragem: '',
+    cambio: '',
+    motor: '',
+    flex: false,
+    description: '',
+    image: ''
+  });
 
       const navigate = useNavigate()
 
       const handleChange = (e) => {
-        setNovoVeiculo({...novoVeiculo, [e.target.name]: e.target.value});
-      }
+        const { name, value, type, checked } = e.target;
+        setNovoVeiculo(prevCar => ({
+          ...prevCar,
+          [name]: type === 'checkbox' ? checked : value
+        }));
+      };
 
       const handleSubmit = (e) => {
         e.preventDefault();
@@ -114,6 +123,52 @@ const CadastroVeiculo = () => {
               required
             />
           </label>
+
+          <label>
+            Quilometragem:
+            <input
+              type="text"
+              placeholder='Digite a quilometragem do veículo'
+              name='quilometragem'
+              value={novoVeiculo.quilometragem}
+              onChange={handleChange}
+              required
+            />
+          </label>
+
+          <label>
+            Cambio:
+            <input
+              type="text"
+              placeholder='Digite o cambio do veículo'
+              name='cambio'
+              value={novoVeiculo.cambio}
+              onChange={handleChange}
+              required
+            />
+          </label>
+
+          <label>
+            Motor:
+            <input
+              type="text"
+              placeholder='Digite o motor do veículo'
+              name='motor'
+              value={novoVeiculo.motor}
+              onChange={handleChange}
+              required
+            />
+          </label>
+
+          <label>
+          Flex:
+          <input
+            type="checkbox"
+            name="flex"
+            checked={novoVeiculo.flex}
+            onChange={handleChange}
+          />
+        </label>
 
           <label>
             Imagem:

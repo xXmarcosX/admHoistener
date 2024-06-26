@@ -9,6 +9,14 @@
     border-left: 1px solid #ccc;
     border-radius: 10px;
   }
+
+  .details{
+    width: 100%;
+    padding-left: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
   .carImage {
     max-width: 200px;

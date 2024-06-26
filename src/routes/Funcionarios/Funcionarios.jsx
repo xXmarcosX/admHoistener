@@ -23,6 +23,11 @@ const Funcionarios = () => {
         })
        })
 
+       function formatPrice(price) {
+        return price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+        
+
   return (
     <>
       <NavBar/>
@@ -44,7 +49,7 @@ const Funcionarios = () => {
       <tr key={index}>
         <td>{item.name}</td>
         <td>{item.email}</td>
-        <td>R$ {item.salario}</td>
+        <td>{formatPrice(item.salario)}</td>
         <td>
         <Link className={style.edit} to={`/editfunc/${item._id}`}>
             Editar

@@ -4,7 +4,7 @@
     top: 0;
     left: 0; /* Ajustado para o canto esquerdo */
     width: 250px;
-    height: 110vh;
+    height: 150vh;
     background-color: #333;
     padding-top: 60px;
     transition: transform 0.3s ease;
